@@ -1,0 +1,119 @@
+//Coolors Exported Palette - coolors.co/d0efb1-b3d89c-9dc3c2-77a6b6-4d7298
+$tea-green: rgba(208, 239, 177, 1);
+$granny-smith-apple: rgba(179, 216, 156, 1);
+$cambridge-blue: rgba(157, 195, 194, 1);
+$moonstone-blue: rgba(119, 166, 182, 1);
+$blue-yonder: rgba(77, 114, 152, 1);
+$grey: rgb(239, 239, 239);
+$white: rgb(255, 255, 255);
+
+//mixins
+@mixin width-and-height {
+  max-width: 100%;
+  max-height: 300px;
+}
+
+//fonts
+$pacifico: 'Pacifico', cursive;
+//300-400-500 weight
+$quicksand: 'Quicksand', sans-serif;
+
+//sections
+body {
+  background-color: $grey;
+  font-family: $quicksand;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+//nav elements
+.navbar {
+  background-color: $blue-yonder;
+
+  .navbar-brand {
+    font-family: $pacifico;
+    font-size: 18px;
+  }
+
+  .navbar-item {
+    font-weight: 300;
+  }
+}
+
+.breadcrumb {
+  width: max-content;
+}
+
+.clickable-link {
+  color: #0275d8;
+  cursor: pointer;
+
+  img {
+    @include width-and-height;
+  }
+}
+
+//main container
+.container-main {
+  background-color: $white;
+  padding-bottom: 3em;
+  padding-top: 3em;
+
+  .list-group-item {
+    word-break: break-all;
+  }
+
+  .about-me-overview {
+    margin-bottom: 2em;
+  }
+
+  .about-me-img {
+    text-align: center;
+
+    img {
+      @include width-and-height;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .about-me-img {
+      margin-bottom: 1em;
+    }
+
+    ul {
+      text-align: center;
+      width: 100%;
+
+      li {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    p,
+    .list-group-item {
+      margin-left: 6em;
+      margin-right: 6em;
+    }
+  }
+}
+
+//galleries for showing off work
+.gallery {
+  text-align: center;
+
+  img {
+    margin-bottom: 1em;
+  }
+}

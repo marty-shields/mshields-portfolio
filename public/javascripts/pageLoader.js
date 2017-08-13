@@ -1,1 +1,42 @@
-$(function(){function a(a,n){$("#breadcrumbs").append('<li class="breadcrumb-item"><a href="'+n[0].pathname+'">'+n[0].innerHTML+'</a></li><li class="breadcrumb-item active">'+a.innerHTML+"</li>")}$("#navbarToggler").load("sitemap.html",function(){$(".navbar-nav").find("a").each(function(n,i){if(i.pathname==window.location.pathname){var e=window.location.pathname.split("/");return"uni"==e[1]?void a(i,$(".navbar-nav").find('a[href="uni/index.html"]').addClass("active")):"projects"==e[1]?void a(i,$(".navbar-nav").find('a[href="projects/index.html"]').addClass("active")):void $(this).addClass("active")}})})});
+$(function() {
+  //get all of the links from the navbar and find the one that matchs with
+  //the path name
+  var links = $('.navbar-nav').find('a');
+  links.each(function(index, el) {
+    if (el.pathname == window.location.pathname) {
+      //split the path name by the /
+      var array = window.location.pathname.split('/');
+      //if we are in the uni sub folder then always set parent as active
+      if(array[1] == 'uni')
+      {
+        //get the parent element and set class as active
+        var uniParent = $('.navbar-nav')
+          .find('a[href="uni/index.html"]')
+          .addClass('active');
+
+        return;
+      }
+      //if we are in the uni sub folder then always set parent as active
+      if(array[1] == 'projects')
+      {
+        //set the parent as active
+        var projParent = $('.navbar-nav')
+          .find('a[href="projects/index.html"]')
+          .addClass('active');
+
+        return;
+      }
+
+      //set the class of the parent to active
+      $(this).addClass('active');
+      return;
+    }
+  });
+
+  //this takes the parent and child element to generate the breadcrumbs
+  function LoadBreadcrumbs(childElement, parentElement){
+    $('#breadcrumbs').append('<li class="breadcrumb-item"><a href="'+
+      parentElement[0].pathname+'">'+parentElement[0].innerHTML+'</a></li>'+
+    '<li class="breadcrumb-item active">'+childElement.innerHTML+'</li>');
+  }
+});
