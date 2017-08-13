@@ -20,27 +20,34 @@ router.get('/', function(req, res, next) {
       res.status(500).send('Something broke!');
     }
 
-    console.log("Database created!");
-    console.log(db);
+    db.collection('uni-work').find({}).toArray(function (err, query){
+      if (err) throw err;
 
-    db.collection('uni-work').insertOne({
-      title : "Database Administration Tool - Dissertation",
-      img : "https://img.youtube.com/vi/FYvno44PK-Y/mqdefault.jpg",
-      overview : {
-        summary : "Database Administration and Backup Tool",
-        languages : "HTML, CSS, JS, JQuery, Node.JS",
-        frameworks : "Bootstrap, Chart.JS",
-        github : "Insert Link Here"
-      }
-    })
-    .then(function (result) {
-      console.log(result);
       db.close();
 
-      res.render(path.join('uni'), { title: 'MS Portfolio - Uni' });
+      console.log(query);
+
+      res.render(path.join('uni'), {
+        title: 'MS Portfolio - Uni',
+        item: query
+      });
     });
   });
 
 });
+
+//db.collection('uni-work').insertOne({
+//  title : "Database Administration Tool - Dissertation",
+//  img : "https://img.youtube.com/vi/FYvno44PK-Y/mqdefault.jpg",
+//  overview : {
+//    summary : "Database Administration and Backup Tool",
+//    languages : "HTML, CSS, JS, JQuery, Node.JS",
+//    frameworks : "Bootstrap, Chart.JS",
+//    github : "Insert Link Here"
+//  }
+//})
+//.then(function (result) {
+//});
+
 
 module.exports = router;
