@@ -2,9 +2,42 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Use Internet Explorer 9 Standards mode -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,
+    shrink-to-fit=no">
+    <title>Martin Shields - Portfolio</title>
+    <!-- font files -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand:300,400,500"
+    rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    {{{body}}}
+    <nav class="navbar navbar-inverse navbar-toggleable-sm">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button"
+        data-toggle="collapse" data-target="#navbarToggler"
+        aria-controls="navbarToggler" aria-expanded="false"
+        aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand text-center" href="index.html">Martin Shields<br />
+          Portfolio</a>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+        </div>
+      </div>
+    </nav>
+    <div class="container container-main">
+      {{{body}}}
+    </div>
+    <!-- JS Files. -->
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/tether.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/pageLoader.js"></script>
   </body>
 </html>
