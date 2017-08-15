@@ -1,0 +1,28 @@
+<div class="main-body">
+  <h1 class="text-center">Uni Work</h1>
+  <br /><hr /><br />
+  {{#each item}}
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="text-center">{{this.title}}</h2>
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <div class="col-md-7 col-lg-8">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe frameborder="0" allowfullscreen
+          src="https://www.youtube.com/embed/FYvno44PK-Y"></iframe>
+      </div>
+    </div>
+    <div class="col-md-5 col-lg-4 d-flex align-items-center">
+      <ul class="list-unstyled">
+        <li>Summary: {{this.overview.summary}}</li>
+        <li>Languages: {{this.overview.languages}}</li>
+        <li>Frameworks: {{this.overview.frameworks}}</li>
+        <li>Github: {{this.overview.github}}</li>
+      </ul>
+    </div>
+  </div>
+  {{/each}}
+</div>

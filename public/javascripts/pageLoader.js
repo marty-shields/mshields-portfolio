@@ -3,30 +3,30 @@ $(function() {
   //the path name
   var links = $('.navbar-nav').find('a');
   links.each(function(index, el) {
+    //split the path name by the /
+    var array = window.location.pathname.split('/');
+    //if we are in the uni sub folder then always set parent as active
+    if(array[1] == 'uni')
+    {
+      //get the parent element and set class as active
+      var uniParent = $('.navbar-nav')
+        .find('a[href="/uni"]')
+        .addClass('active');
+
+      return;
+    }
+    //if we are in the uni sub folder then always set parent as active
+    if(array[1] == 'projects')
+    {
+      //set the parent as active
+      var projParent = $('.navbar-nav')
+        .find('a[href="projects/index.html"]')
+        .addClass('active');
+
+      return;
+    }
+
     if (el.pathname == window.location.pathname) {
-      //split the path name by the /
-      var array = window.location.pathname.split('/');
-      //if we are in the uni sub folder then always set parent as active
-      if(array[1] == 'uni')
-      {
-        //get the parent element and set class as active
-        var uniParent = $('.navbar-nav')
-          .find('a[href="uni/index.html"]')
-          .addClass('active');
-
-        return;
-      }
-      //if we are in the uni sub folder then always set parent as active
-      if(array[1] == 'projects')
-      {
-        //set the parent as active
-        var projParent = $('.navbar-nav')
-          .find('a[href="projects/index.html"]')
-          .addClass('active');
-
-        return;
-      }
-
       //set the class of the parent to active
       $(this).addClass('active');
       return;

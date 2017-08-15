@@ -2,6 +2,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
+var mongo = require('mongodb')
 var MongoClient = require('mongodb').MongoClient;
 
 
@@ -22,12 +23,9 @@ router.get('/', function(req, res) {
 
     db.collection('uni-work').find({}).toArray(function (err, query){
       if (err)       res.status(500).send('Something broke! - can not get query');
-
       db.close();
 
       var results = {projects : query};
-      console.log(results);
-
       res.render(path.join('uni'), {
         title: 'MS Portfolio - Uni',
         item: results
@@ -38,7 +36,21 @@ router.get('/', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-  res.send('show page!');
+  MongoClient.connect(uri, function(err, db) {
+    if (err) res.status(500).send('Something broke! - can not connect to DB');
+
+    var query = {_id :  new mongo.ObjectId(req.params.id)};
+
+    db.collection('uni-work').findOne(query, function (err, result){
+      if (err) res.status(500).send('Something broke! - can not get query');
+      db.close();
+
+      var results = {projects : result};
+      console.log(results);
+      
+      res.render(path.join('uni/show'), {item: results});
+    });
+  });
 });
 
 //db.collection("uni-work").deleteMany(function(err, obj) {
