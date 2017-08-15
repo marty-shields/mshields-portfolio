@@ -16,10 +16,12 @@ var uri = "mongodb://marty-shields:1loD8ziYiusb8A1r@cluster0-shard-00-00-" +
 /* --------------------------------ROUTES----------------------------------- */
 router.get('/', function(req, res) {
   MongoClient.connect(uri, function(err, db) {
-    if (err) throw err;
+    if (err) {
+      res.status(500).send('Something broke! - can not connect to DB');
+    }
 
     db.collection('uni-work').find({}).toArray(function (err, query){
-      if (err) throw err;
+      if (err)       res.status(500).send('Something broke! - can not get query');
 
       db.close();
 
