@@ -15,25 +15,7 @@ var uri = "mongodb://marty-shields:1loD8ziYiusb8A1r@cluster0-shard-00-00-" +
 
 /* --------------------------------ROUTES----------------------------------- */
 router.get('/', function(req, res) {
-  MongoClient.connect(uri, function(err, db) {
-    if (err) {
-      res.status(500).send('Something broke!');
-    }
-
-    db.collection('uni-work').find({}).toArray(function (err, query){
-      if (err) throw err;
-
-      db.close();
-
-      var results = {projects : query};
-      console.log(results);
-
-      res.render(path.join('uni'), {
-        title: 'MS Portfolio - Uni',
-        item: results
-      });
-    });
-  });
+res.send('worked');
 
 });
 
