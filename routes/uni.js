@@ -3,8 +3,9 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var MongoDbConnector = require(path.join('../Data-Access/MongoDbConnector'));
+var MongoDbConnector = require('../Data-Access/MongoDbConnector.js');
 var md = new MongoDbConnector();
+console.log(path);
 
 /* -----------------------------MONGO DB URI-------------------------------- */
 var uri = "mongodb://marty-shields:1loD8ziYiusb8A1r@cluster0-shard-00-00-" +
