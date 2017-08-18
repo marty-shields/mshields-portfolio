@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var MongoDbConnector = require('../Data-Access/MongoDbConnector');
+var MongoDbConnector = require(path.join('../Data-Access/MongoDbConnector'));
 var md = new MongoDbConnector();
 
 /* -----------------------------MONGO DB URI-------------------------------- */
