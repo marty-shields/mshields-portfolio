@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
+require('app-root-dir').set(__dirname);
 
 var index = require('./routes/index');
 var uni = require('./routes/uni');
@@ -30,7 +31,7 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/uni', uni);
+// app.use('/uni', uni);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
