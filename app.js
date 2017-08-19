@@ -28,6 +28,8 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'da')));
+global.appRoot = path.resolve(__dirname);
 
 app.use('/', index);
 app.use('/uni', uni);
