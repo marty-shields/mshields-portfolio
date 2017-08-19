@@ -9,6 +9,7 @@ require('app-root-dir').set(__dirname);
 
 var index = require('./routes/index');
 var uni = require('./routes/uni');
+var mongo = require('./da/MongoDbConnector');
 
 var app = express();
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/uni', uni);
-app.use("/da", express.static(__dirname + '/da'));
+app.use("/da", mongo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
