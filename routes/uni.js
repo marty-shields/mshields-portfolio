@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var appRootDir = require('app-root-dir').get();
-var MongoDbConnector = require(process.cwd() + '/da/MongoDbConnector');
+var MongoDbConnector = require(__dirname + '/../da/MongoDbConnector');
 var md = new MongoDbConnector();
 
 /* -----------------------------MONGO DB URI-------------------------------- */
