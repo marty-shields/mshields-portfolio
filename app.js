@@ -35,7 +35,7 @@ app.use('/', index);
 app.use('/uni', uni);
 
 //data access layer
-app.use(path.join(__dirname, 'da'));
+app.use(path.join(__dirname, 'data-access'));
 app.use('/MongoDBConnector', mongo);
 
 // catch 404 and forward to error handler
