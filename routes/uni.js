@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var appRootDir = require('app-root-dir').get();
-var MongoDbConnector = require('../da/MongoDbConnector');
+var MongoDbConnector = require(appRootDir + '/da/MongoDbConnector');
 var md = new MongoDbConnector();
 
 /* -----------------------------MONGO DB URI-------------------------------- */
