@@ -15,6 +15,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+app.set('da', (path.join(__dirname, 'data-access')));
 
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -29,13 +30,10 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'data-access')));
 
-//routes locations
 app.use('/', index);
 app.use('/uni', uni);
-
-//data access layer
-app.use(path.join(__dirname, 'data-access'));
 app.use('/MongoDBConnector', mongo);
 
 // catch 404 and forward to error handler
