@@ -8,7 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var index = require('./routes/index');
 var uni = require('./routes/uni');
-var mongo = require('./da/MongoDBConnector');
+var mongo = require('./data-access/MongoDBConnector');
 
 var app = express();
 
