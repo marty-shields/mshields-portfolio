@@ -33,7 +33,6 @@ app.use(express.static(path.join(__dirname, 'data-access')));
 
 app.use('/', index);
 app.use('/uni', uni);
-app.use('/MongoDBConnector', mongo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
