@@ -8,7 +8,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var index = require('./routes/index');
 var uni = require('./routes/uni');
-var mongo = require('./da/MongoDbConnector');
+var mongo = require('./da/MongoDBConnector');
 
 var app = express();
 
@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, 'da')));
 
 app.use('/', index);
 app.use('/uni', uni);
-app.use('/MongoDbConnector', mongo);
+app.use('/MongoDBConnector', mongo);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
