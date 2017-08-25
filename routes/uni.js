@@ -22,11 +22,11 @@ router.get('/', function(req, res) {
 
 router.get('/:id', function(req, res) {
   md.GetResultByID(req.params.id, 'uni-work').then((results) =>{
-    console.log(results);
-    var result = {projects : results};
+    var result = {projects : results.item};
     res.render(path.join('uni/show'), {
       title: results.title,
-      item: result
+      item: result,
+      description: results.desc
     });
   }).catch((err) => {
     res.status(500).send('Something broke! - can not get query');
