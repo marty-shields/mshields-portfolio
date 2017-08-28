@@ -31,7 +31,6 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'data-access')));
-app.use(express.static((__dirname, 'config.js')));
 
 app.use('/', index);
 app.use('/uni', uni);
