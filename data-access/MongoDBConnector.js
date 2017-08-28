@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 "use strict";
 var mongo = require('mongodb');
-const config = require("../config.json");
+const config = require("../config.js");
 
 module.exports = class MongoDbConnector {
   constructor(){

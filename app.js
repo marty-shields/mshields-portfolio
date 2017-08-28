@@ -9,7 +9,7 @@ var sassMiddleware = require('node-sass-middleware');
 var index = require('./routes/index');
 var uni = require('./routes/uni');
 var mongo = require('./data-access/MongoDBConnector');
-var config = require('./config.json');
+var config = require('./config.js');
 
 var app = express();
 
@@ -31,7 +31,7 @@ app.use(sassMiddleware({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'data-access')));
-app.use(express.static((__dirname, 'config.json')));
+app.use(express.static((__dirname, 'config.js')));
 
 app.use('/', index);
 app.use('/uni', uni);
