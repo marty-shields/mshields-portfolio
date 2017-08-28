@@ -48,3 +48,4 @@ jspm_packages
 
 # Config JSON File
 /config.json
+config.js
