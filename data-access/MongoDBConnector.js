@@ -50,6 +50,20 @@ module.exports = class MongoDbConnector {
       });
     });
   }
+
+  InsertNewProject(req, coll){
+    return new Promise((resolve, reject) => {
+      mongo.MongoClient.connect(this.uri, function(err, db) {
+        if (err) {
+          reject(false);
+        }
+
+        console.log(req);
+
+        db.close();
+      });
+    });
+  }
 };
 
 

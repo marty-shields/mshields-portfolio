@@ -3,7 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var appRootDir = require('app-root-dir').get();
+const config = require("../config.js");
 var MongoDbConnector = require('../data-access/MongoDBConnector.js');
 var md = new MongoDbConnector();
 
@@ -31,6 +31,37 @@ router.get('/:id', function(req, res) {
   }).catch((err) => {
     res.status(500).send('Something broke! - can not get query');
   });
+});
+
+router.post('/', function(req, res) {
+  if (req.body.secret === config.secret){
+    var desc = req.body.description.split("\r\n");
+    var descrip = [];
+    for (var i = 0; i < desc.length; i++) {
+      descrip.push({desc : desc[i]});
+    }
+
+    var obj = {
+      title: req.body.title,
+      img: req.body.img,
+      video: req.body.video,
+      overview: {
+        summary: req.body.summary,
+        languages: req.body.languages,
+        frameworks: req.body.frameworks,
+        github: req.body.github
+      },
+      description: descrip
+    };
+
+    md.InsertNewProject(obj, 'uni-work').then((results) =>{
+
+    }).catch((err) => {
+      res.status(500).send('Something broke! - can not get query');
+    });
+
+  }
+    res.status(500).send('Something broke! - can not insert');
 });
 
 module.exports = router;
