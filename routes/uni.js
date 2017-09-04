@@ -55,7 +55,7 @@ router.post('/', function(req, res) {
     };
 
     md.InsertNewProject(obj, 'uni-work').then((results) =>{
-
+      res.status(200).send('Added successfully!');
     }).catch((err) => {
       res.status(500).send('Something broke! - can not get query');
     });

@@ -44,7 +44,7 @@ module.exports = class MongoDbConnector {
           var res = {
             item: result,
             desc: result.description
-          }
+          };
           resolve(res);
         });
       });
@@ -55,22 +55,26 @@ module.exports = class MongoDbConnector {
     return new Promise((resolve, reject) => {
       mongo.MongoClient.connect(this.uri, function(err, db) {
         if (err) {
-          reject(false);
+          reject(err);
         }
 
-        console.log(req);
+        db.collection(coll).insertOne(req, function(err, res) {
+          if (err) reject(err);
+          db.close();
+          resolve(res);
+        });
 
-        db.close();
       });
     });
   }
 };
 
 
-/*db.collection(coll).deleteOne(function(err, obj) {
-  if (err) throw err;
-  console.log("1 document deleted");
-});
+/*        var quer = { video: "https://youtu.be/JqMv35bZXb0" };
+        db.collection(coll).deleteOne(quer, function(err, obj){
+          if (err) throw err;
+          console.log("doc deleted");
+        });
 
 var myobj = {
   title: "Database Administration Tool - Dissertation",
