@@ -45,7 +45,3 @@ jspm_packages
 
 # Yarn Integrity file
 .yarn-integrity
-
-# Config JSON File
-/config.json
-config.js
